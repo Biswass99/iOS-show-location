@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  show-location
 //
-//  Created by user150447 on 2/19/19.
+//  Created by Salil Biswas on 4/18/19.
 //  Copyright © 2019 user150447. All rights reserved.
 //
 
@@ -31,6 +31,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
     }
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus){
+        
         if status == .authorizedWhenInUse {
             print("GPS allowed.")
             myMap.showsUserLocation = true
@@ -46,7 +47,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         altitude = locationManager.location?.altitude
         latitude = myCoordinate?.latitude
         longitude = myCoordinate?.longitude
-        
+        // change background color to yellow
+        self.view.backgroundColor = UIColor.yellow
+        //
         myLatitude.text = String(latitude!)
         myLongitude.text = String(longitude!)
         myAltitude.text = String(altitude!)
